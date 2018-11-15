@@ -10,5 +10,5 @@ class User {
 
 }
 
-let user = new User("John");
+let user = new User("Fernando");
 user.sayHi();
