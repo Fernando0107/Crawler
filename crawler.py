@@ -41,6 +41,11 @@ print('\n ------------------- Variables --------------------\n')
 for i in lista:
     if i[0] == string_to_tokentype('Token.Name.Variable'):
         print(i)
+
+print('\n ------------------- Palabras reservadas --------------------\n')
+for i in lista:
+    if i[0] == string_to_tokentype('Token.Name.Other'):
+        print(i)
     
 
 
