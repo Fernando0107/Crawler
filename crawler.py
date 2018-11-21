@@ -8,7 +8,7 @@ lexer = JavascriptLexer()
 #File
 filepath = 't.js'
 
-#File open 
+#File open
 fp = open(filepath).read()
 
 #Code insertion
@@ -17,6 +17,7 @@ code = []
 for x in tokens:
     code.append(x)
 
+
 def menu():
         print('\n--------- Crawler JS ---------\n')
         print('Press (1,2,3,4,5,6,7,8) to choose\n')
@@ -24,98 +25,52 @@ def menu():
         x = input("> ")
 
         if x == '1':
-                keyword()
-        elif x== '2':
-                variable()
+        elif x == '2':
         elif x == '3':
-                other()
-        elif x=='4':
-                builtin()
-        elif x=='5':
-                operators()
-        elif x=='6':
-                constant()
+        elif x == '4':
+        elif x == '5':
+        elif x == '6':
         elif x == '7':
-                literal()
         elif x == '8':
                 Lexerfile()
-        else: 
+        else:
                 print("Error, please enter a valid number. \n")
                 menu()
+
 
 def Lexerfile():
         '''print("------------------------------------ CoffeeScriptLexer -------------------------------\n")
         print(list(JavascriptLexer().get_tokens(code)))
         print("\n-----------------------------------------------------------\n")
-        print(list(JavascriptLexer().get_tokens_unprocessed(code[:5])))'''
-        print(code)
+        print(list(JavascriptLexer().get_tokens_unprocessed(code[:5])))
+        print(code)'''
 
 #------------------------------------ CoffeeScriptLexer // Por atributo ----------------------------------------------------
 
 #Imprimir el atibuto según el Token
 
-def keyword():
-        print('\n ------------------- Definición de palabras reservadas --------------------\n')
-        for i in lista:
-                if i[0] == string_to_tokentype('Token.Keyword'): #El atributo por el cual queremos buscar
-                        print(i)
+def getVars():
+        cont = 0
+        cont2=0
+        print('\n ------------------- variables definidas por var --------------------\n')
+        for i in code:
+                if i[1] == 'var':
+                        print(code[cont+2][1])
+                cont += 1
         print("\n")
-
-def variable():
-
-        print('\n ------------------- Variables --------------------\n')
-        for i in lista:
-                if i[0] == string_to_tokentype('Token.Name.Variable'):
-                        print(i)
-        print("\n")
-
-def other():
-        print('\n ------------------- Otras palabras reservadas --------------------\n')
-        for i in lista:
-                if i[0] == string_to_tokentype('Token.Name.Other'):
-                        print(i)
+        print('\n ------------------- variables definidas por Let --------------------\n')
+        for j in code: 
+                if j[1] == 'let':
+                        print(code[cont2+2][1])
+                cont2 += 1
         print("\n")
 
 
-def builtin():
-        print('\n ------------------- Builtin --------------------\n')
-        for i in lista:
-                if i[0] == string_to_tokentype('Token.Name.Builtin'):
-                        print(i)
-        print("\n")
+                
 
-
-def operators():
-        print('\n ------------------- Operadores --------------------\n')
-        for i in lista:
-                if i[0] == string_to_tokentype('Token.Operator'):
-                        print(i)
-        print("\n")
-
-
-def constant():
-        print('\n ------------------- Constantes --------------------\n')
-        for i in lista:
-                if i[0] == string_to_tokentype('Token.Keyword.Constant'):
-                        print(i)
-        print("\n")
-
-
-def literal():
-        print('\n ------------------- Literales --------------------\n')
-        for i in lista:
-                if i[0] == string_to_tokentype('Token.Literal.String'):
-                        print(i)
-        print("\n")
-
-
-    
 
 
 menu()
-
-
-
 
 
 #print(code)
@@ -134,4 +89,3 @@ menu()
 #file2.write(code)
 
 #http://pygments.org/docs/tokens/
-
