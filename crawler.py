@@ -1,16 +1,9 @@
-from pygments import highlight
 from pygments.lexers import JavascriptLexer
-from pygments.lexers import LiveScriptLexer
-from pygments.lexers import TypeScriptLexer
-from pygments.lexers import ObjectiveJLexer
-from pygments.lexers import CoffeeScriptLexer
-from pygments.formatters import HtmlFormatter
+from pygments import lex
 from pygments.token import Token
-from pygments.token import String
 from pygments.token import String, string_to_tokentype
 
-#from pygments.lexers import guess_lexer, guess_lexer_for_filename #Guess lexers
-#from pygments.lexers import (get_lexer_by_name, get_lexer_for_filename, get_lexer_for_mimetype)  # look up
+lexer = JavascriptLexer()
 
 #File
 filepath = 't.js'
@@ -20,9 +13,10 @@ fp = open(filepath)
 lines = fp.readlines()
 
 #Code insertion
-code = ''
-for i in lines:
-    code = code + i
+tokens = lex(fp, lexer)
+code = []
+for x in tokens:
+    code.append(x)
 
 def menu():
         print('\n--------- Crawler JS ---------\n')
