@@ -9,8 +9,7 @@ lexer = JavascriptLexer()
 filepath = 't.js'
 
 #File open 
-fp = open(filepath) 
-lines = fp.readlines()
+fp = open(filepath).read()
 
 #Code insertion
 tokens = lex(fp, lexer)
@@ -45,15 +44,15 @@ def menu():
                 menu()
 
 def Lexerfile():
-        print("------------------------------------ CoffeeScriptLexer -------------------------------\n")
-        print(list(CoffeeScriptLexer().get_tokens(code)))
+        '''print("------------------------------------ CoffeeScriptLexer -------------------------------\n")
+        print(list(JavascriptLexer().get_tokens(code)))
         print("\n-----------------------------------------------------------\n")
-        print(list(CoffeeScriptLexer().get_tokens_unprocessed(code[:5])))
+        print(list(JavascriptLexer().get_tokens_unprocessed(code[:5])))'''
+        print(code)
 
 #------------------------------------ CoffeeScriptLexer // Por atributo ----------------------------------------------------
 
 #Imprimir el atibuto según el Token
-lista = list(CoffeeScriptLexer().get_tokens(code))
 
 def keyword():
         print('\n ------------------- Definición de palabras reservadas --------------------\n')
