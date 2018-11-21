@@ -23,6 +23,28 @@ lines = fp.readlines()
 code = ''
 for i in lines:
     code = code + i
+
+print("------------------------------------ CoffeeScriptLexer -------------------------------\n")
+print(list(CoffeeScriptLexer().get_tokens(code)))
+
+print("\n------------------------------------ CoffeeScriptLexer // Por atributo -------------------------------\n")
+
+#Imprimir el atibuto según el Token
+lista = list(CoffeeScriptLexer().get_tokens(code))
+
+print('\n ------------------- Definición de palabras reservadas --------------------\n')
+for i in lista:
+    if i[0] == string_to_tokentype('Token.Keyword'): #El atributo por el cual queremos buscar
+        print(i)
+        
+print('\n ------------------- Variables --------------------\n')
+for i in lista:
+    if i[0] == string_to_tokentype('Token.Name.Variable'):
+        print(i)
+    
+
+
+
 #print(code)
 #formatter = HtmlFormatter(full=True, linenos=True)
 
@@ -33,20 +55,6 @@ for i in lines:
 #print(list(TypeScriptLexer().get_tokens(code)))
 #print("---------------------------------- ObjectiveJLexer ---------------------------------\n")
 #print(list(ObjectiveJLexer().get_tokens(code)))
-
-print("------------------------------------ CoffeeScriptLexer -------------------------------\n")
-print(list(CoffeeScriptLexer().get_tokens(code)))
-
-print("\n------------------------------------ CoffeeScriptLexer // Por atributo -------------------------------\n")
-
-#Imprimir el atibuto según el Token
-lista = list(CoffeeScriptLexer().get_tokens(code))
-for i in lista:
-    if i[0] == string_to_tokentype('Token.Keyword'): #El atributo por el cual queremos buscar
-        print(i)
-
-
-
 
 #file2 = open("save.html", "w")
 
